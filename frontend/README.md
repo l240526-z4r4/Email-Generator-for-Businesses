@@ -1,16 +1,21 @@
-# React + Vite
+Email Generator
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A full-stack app that scrapes a business website and generates ready-to-send HTML promotional emails, using an LLM to fill in copy and match the site's own visual identity.
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
-
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+Features
+Natural-language input — a single command like "generate a discount email from this website: url" captures both the target site and the desired email type
+Automated scraping — Playwright extracts page text, headings, meta description, and candidate images (filtered by size, with Open Graph image prioritized)
+Design extraction — pulls the site's actual background/text/accent colors and layout density directly from computed styles, so generated emails visually match the source brand without any manual styling input
+Flexible generation — supports free-form topic focus (e.g. "ready to wear essentials"), custom image counts, and length preferences (short/medium/long)
+Fact-checking loop — a critic pass checks each draft against the scraped business profile and flags/rejects any invented discounts, products, or claims not actually present on the site, regenerating up to 3 times if needed
+Editable output — a revision endpoint lets you request specific changes to a generated email while preserving verified facts and existing styling
+Tech Stack
+Scraping: Playwright (Python)
+Backend: FastAPI
+LLM: Groq (openai/gpt-oss-120b)
+Frontend: React (Vite) + axios
+Setup
+Clone the repo and install backend dependencies
+Add your Groq API key to a .env file (GROQ_API_KEY=...)
+Run the FastAPI backend and the React frontend
+Enter a command like "generate a welcome email from https://example.com" and let it scrape, profile, and generate
