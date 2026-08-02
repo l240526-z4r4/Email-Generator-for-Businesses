@@ -1,0 +1,66 @@
+.app-container {
+  max-width: 600px;
+  margin: 60px auto;
+  padding: 20px;
+  font-family: system-ui, sans-serif;
+  text-align: center;
+}
+
+.subtitle {
+  color: #666;
+  margin-bottom: 24px;
+}
+
+.command-input {
+  width: 100%;
+  padding: 12px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+button {
+  margin-top: 16px;
+  padding: 10px 24px;
+  font-size: 16px;
+  background-color: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:disabled {
+  background-color: #999;
+  cursor: not-allowed;
+}
+
+.error {
+  color: #d32f2f;
+  margin-top: 16px;
+}
+
+.result {
+  margin-top: 32px;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  text-align: left;
+  background: #fafafa;
+}
+
+.result h2 {
+  color: #1a1a1a;
+  margin-top: 0;
+}
+
+.edit-box {
+  margin-top: 24px;
+}
+
+.upload-box {
+  margin-top: 16px;
+  text-align: left;
+}
